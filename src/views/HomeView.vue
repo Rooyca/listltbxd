@@ -194,7 +194,7 @@ body {
 }
 
 header {
-  background: url(https://firebasestorage.googleapis.com/v0/b/withfirebase-d60f9.appspot.com/o/902437.jpg?alt=media&token=ebf4e722-9150-405f-a2f3-9b80429e647a) no-repeat;
+  background: url('/902437.jpg') no-repeat;
   padding-top: 61.93333333%;
   background-size: cover;
   font-family: 'Sucrose Bold Two';
