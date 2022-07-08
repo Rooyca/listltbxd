@@ -1,7 +1,11 @@
-# Vue 3 + Vite
+# About
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[Let List](https://list.rooyca.xyz) is a Little project where you can scan lists from Letterboxd and convert them to JSON. As easy as copy the url and paste it on the page. Then you would receive an ID with wich you can check the status of your request ("Started", "Pending" or "Failed").
 
-## Recommended IDE Setup
+You can also see all the lists that had already been scan and check the results by clicking at the ID.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+![IMG2](https://res.cloudinary.com/rooyca/image/upload/q_auto:low/v1657298593/list_ngzyo9.webp)
+
+### Recomendations
+
+If you have any please let me know
