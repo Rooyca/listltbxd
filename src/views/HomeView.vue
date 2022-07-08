@@ -2,23 +2,18 @@
 import { reactive, ref } from 'vue';
 import axios from 'axios';
 
-const responseLIST = reactive({d:[]})
 const responseURL = ref("")
 const responseID = reactive({d:[]})
+const urlRequest = ref("")
+const positionRemainder = reactive({bottom: "18rem"})
 
-const makeRequestLIST = () => {
-  const config = {url:'https://letbxl.herokuapp.com/lboxdlist/ids', method:'GET'}
-  axios(config)
-  .then(res => {
-    responseLIST.d = res.data
-    })
-}
-
-const makeRequestURL = () => {
-  const config = {url:'https://letbxl.herokuapp.com/lboxdlist/list', method:'POST', data: {"link": "https://letterboxd.com/peterstanley/list/1001-movies-you-must-see-before-you-die/"}}
+const makeRequestURL = url => {
+  const config = {url:'https://letbxl.herokuapp.com/lboxdlist/list', method:'POST', data: {"link": url}}
   axios(config)
   .then(res => {
     responseURL.value = res.data.task_id
+    positionRemainder.bottom = "10rem"
+    urlRequest.value = ""
     })
 }
 
@@ -37,24 +32,69 @@ const makeRequestID = () => {
         <h1>Convert your <span> LETTERBOXD</span> list to JSON</h1>
         </div>
     <div class="search-box">
-        <button class="btn-search" type="button" @click="makeRequestURL"><i class="fas fa-search"></i></button>
-        <input type="text" class="input-search" placeholder="Type the URL...">
+        <button class="btn-search" type="button" @click="makeRequestURL(urlRequest)"><i class="fas fa-search"></i></button>
+        <input type="text" class="input-search" v-model="urlRequest" placeholder="Enter the URL...">
     </div>
+  <div class="container-remainder" :style="positionRemainder">
+    <p style="font-family: 'Montserrat', sans-serif;">
+      <span style="text-shadow:1px 1px 3px black; color:lightcoral; font-weight: 600; ">REMEMBER: </span> 
+          if the list has more than one page please specifie it 
+          by putting '<span style="color:greenyellow">/page/1</span>' 
+          (where '1' is the page number) at the end of the URL 
+    </p>
+  </div>
     <div class="txt-response" v-if="responseURL">
-        We are processing your request... <span>Here you have an ID with which you can track the status of it.</span>
-        <p>ID: <router-link :to="'/check-status?id='+responseURL">{{responseURL}}</router-link></p>
+        Can track the status of your request with this ID: <p style="font-size: 18px;"><router-link :to="'/check-status?id='+responseURL" >{{responseURL}}</router-link></p>
     </div>
     </header>
 </template>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap');
+input{
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-weight: bolder;
+}
+.container-remainder::-webkit-scrollbar {
+    width: 8px;     
+    height: 8px;    
+    display: none; 
+}
 .search-box{
   width: fit-content;
   height: fit-content;
   position: fixed;
   top: 11rem;
   right: 2rem;
+}
+.container-remainder {
+    color:whitesmoke; 
+    text-shadow: 0.5px 0.5px 9px whitesmoke; 
+    padding: 2%;
+    height: 10rem; 
+    width: 24rem;
+    background-color: rgba(0, 0, 0, 0.5); 
+    overflow: auto;
+    border-radius: 17px;
+    position: absolute;
+    left: 3.6%;
+}
+@media all and (max-width: 500px) {
+  .container-remainder {
+    padding-top: 9%;
+  }
+  .txt-response {
+    left: 0%;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .container-remainder {
+    padding-top: 9%;
+    width: 23rem;
+    top: 70%;
+  }
 }
 .input-search{
   height: 50px;
@@ -129,7 +169,7 @@ footer .fa-heart{
 footer a {
     color: #3c97bf;
     text-decoration: none;
-  margin-right:5px;
+    margin-right:5px;
 }
 /* footer  */
 
@@ -179,24 +219,41 @@ header h1 span {
 }
 
 .txt-response {
-  color:#F4F4F2;
+  color:white;
   position: fixed;
   font-weight: bolder;
+  font-size: 15px;
   text-shadow: 1px 1px 3px black;
   bottom:20rem;
   text-align: center;
   margin: 9px;
   padding: 10px;
+  padding-top: 23px;
   margin-top: 20px;
   background-color: #974e758a;
   border-radius: 20px;
   font-family: 'Montserrat', sans-serif;
+  width: 24rem;
+  left: 3.3%;
+}
+
+@media all and (max-width: 500px) {
+  .txt-response {
+    left: 0%;
+    top: 53%;
+    height: 6rem;
+    width: 23rem;
+    font-size: 13px;
+  }
+  .txt-response a {
+    font-size: 15px;
+  }
 }
 .txt-response a {
   color: #41bd47d3;
 }
 
-@media all and (max-width: 1500px) {
+@media all and (max-width: 1000px) {
   .txt-all span {
     font-size: 10vw;
   }
@@ -206,7 +263,7 @@ header h1 span {
     top: 14rem;
   }
   header {
-    height: 210vw;
+    height: 212vw;
   }
   .search-box{
     position: relative;
