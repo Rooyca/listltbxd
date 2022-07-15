@@ -17,7 +17,6 @@ onMounted(() => {
 
 <template>
   <header>
-    <p class="title-all-list">List of ID's</p>
     <div class="div-con">
       <table class="table table-dark table-hover mx-auto style-table">
         <thead>
@@ -84,30 +83,6 @@ th {
     .div-con{
         top: 62%
 
-    }
-}
-.title-all-list{
-    text-align:center; 
-    color: greenyellow; 
-    font-size: 20px;
-    position: absolute;
-    top: 15.6%;
-    left: 50%;
-    right: 50%;
-    transform: translate(-50%, -50%);
-    width: 13%;
-    font-family: 'Sucrose Bold Two';
-    text-shadow: 0.5px 0.5px 9px whitesmoke;
-    background-color: rgba($color: #2929295b, $alpha: 0.6);
-    padding: 16px;
-    border-radius: 50% 50% 0% 0%;
-}
-
-@media all and (max-width:500px) {
-    .title-all-list{
-        top: 12.35%;
-        width: 10rem;
-        padding: 0;
     }
 }
 </style>
