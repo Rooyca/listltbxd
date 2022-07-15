@@ -53,7 +53,7 @@ const makeRequestID = () => {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap');
 input{
   font-family: 'Montserrat', sans-serif;
-  color: black;
+  color: white;
   font-weight: bolder;
 }
 .container-remainder::-webkit-scrollbar {
@@ -71,15 +71,16 @@ input{
 .container-remainder {
     color:whitesmoke; 
     text-shadow: 0.5px 0.5px 9px whitesmoke; 
-    padding: 2%;
+    padding: 20px;
     height: 10rem; 
-    width: 24rem;
+    width: 22rem;
     background-color: rgba(0, 0, 0, 0.5); 
     overflow: auto;
     border-radius: 17px;
     position: absolute;
     left: 3.6%;
 }
+
 @media all and (max-width: 500px) {
   .container-remainder {
     padding-top: 9%;
@@ -111,10 +112,10 @@ input{
   color:#fff;
 }
 .input-search::placeholder{
-  color:rgba(255,255,255,.5);
+  color: #fff;
   font-size: 18px;
   letter-spacing: 2px;
-  font-weight: 100;
+  font-weight: bolder;
 }
 .btn-search{
   width: 50px;
@@ -289,11 +290,11 @@ header h1 span {
   border-bottom:1px solid rgba(255,255,255,.5);
 }
 .input-search::placeholder{
-  color:rgba(255, 255, 255, 1);
+  color: #fff;
   text-shadow: 1px 1px 5px gray;
   font-size: 18px;
   letter-spacing: 2px;
-  font-weight: 100;
+  font-weight: bolder;
 }
 }
 @media all and (max-width: 650px) {

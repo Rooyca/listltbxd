@@ -52,7 +52,7 @@ onMounted(() => {
     position: absolute;
     height: 45rem;
     width: 50rem;
-    top: 54%;
+    top: 30rem;
     overflow: auto;
     font-size:13px;
     left: 50%;
@@ -89,9 +89,9 @@ th {
 .title-all-list{
     text-align:center; 
     color: greenyellow; 
-    font-size: 30px;
+    font-size: 20px;
     position: absolute;
-    top: 13.35%;
+    top: 15.6%;
     left: 50%;
     right: 50%;
     transform: translate(-50%, -50%);
@@ -105,7 +105,7 @@ th {
 
 @media all and (max-width:500px) {
     .title-all-list{
-        top: 11.35%;
+        top: 12.35%;
         width: 10rem;
         padding: 0;
     }
